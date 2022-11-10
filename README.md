@@ -1,4 +1,4 @@
-# Social Media Project
+# ThoughtCentral.ca - Social Media Project
 
 NodeJS, Express, React, MySQL
 
