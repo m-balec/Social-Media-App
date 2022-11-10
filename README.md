@@ -13,3 +13,6 @@ NodeJS, Express, React, MySQL
 ## Technical Highlights
 - Session cookie authorization
 - Password hashing + salting using Bcrypt
+
+
+* Original repo exists but remains private due to sensitive data throughout commit history *
