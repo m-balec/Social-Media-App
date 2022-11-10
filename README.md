@@ -15,4 +15,4 @@ NodeJS, Express, React, MySQL
 - Password hashing + salting using Bcrypt
 
 
-* Original repo exists but remains private due to sensitive data throughout commit history *
+##### Original repo exists but remains private due to sensitive data throughout commit history
