@@ -40,6 +40,8 @@ html {
 
 hr {
   border-color: rgb(0, 0, 0);
+  width: 70%;
+  margin-left: 0;
 }
 
 .login-button {
