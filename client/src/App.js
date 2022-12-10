@@ -38,7 +38,7 @@ function App() {
   // Quick walkthrough of how to best use the app
   const walkthrough = () => 
   <ul className='guide'>
-    Features:
+    <b>Features:</b>
     <li className='guide-item'>1. Create an account</li>
     <li className='guide-item'>2. Search/follow other users (try searching "masonb")</li>
     <li className='guide-item'>3. Create a post of your own in the Create tab</li>
@@ -48,29 +48,33 @@ function App() {
   // JSX to display when user is logging in
   const loginPage = () =>
   <div className='page'>
-    <h1>Login</h1>
-    <div className='login-page-input'>
-        <input type='text' className='input-bar' placeholder='Username' ref={usernameRef} />
-        <input type='password' className='input-bar' placeholder='Password' ref={passwordRef} />
-        <button onClick={handleLogin} className='account-button login'>Login</button>
-        <button onClick={changePage} className='account-button login'>Create New Account</button>
+    <div className='content'>
+      <h1>Login</h1>
+      <div className='login-page-input'>
+          <input type='text' className='input-bar-login' placeholder='Username' ref={usernameRef} />
+          <input type='password' className='input-bar-login' placeholder='Password' ref={passwordRef} />
+          <button onClick={handleLogin} className='login-button'>Login</button>
+          <button onClick={changePage} className='login-button'>Create New Account</button>
+      </div>
+      {walkthrough()}
     </div>
-    {walkthrough()}
   </div>;
 
   // JSX to display when user is creating an account
   const signupPage = () =>
   <div className='page'>
-    <h1>Sign Up</h1>
-    <div className='login-page-input'>
-	<h3>Please ensure username and password are 6-16 characters long</h3>
-        <input type='text' className='input-bar' placeholder='Username' ref={usernameRef} />
-        <input type='password' className='input-bar' placeholder='Password' ref={passwordRef} />
-        <input type='password' className='input-bar' placeholder='Confirm Password' ref={confirmPasswordRef} />
-        <button onClick={handleCreateAccount} className='account-button login'>Create Account</button>
-        <button onClick={changePage} className='account-button login'>Login with existing account</button>
+    <div className='content'>
+      <h1>Sign Up</h1>
+      <div className='login-page-input'>
+          <h3 className='credential-info'>Please ensure username and password are 6-16 characters long</h3>
+          <input type='text' className='input-bar-login' placeholder='Username' ref={usernameRef} />
+          <input type='password' className='input-bar-login' placeholder='Password' ref={passwordRef} />
+          <input type='password' className='input-bar-login' placeholder='Confirm Password' ref={confirmPasswordRef} />
+          <button onClick={handleCreateAccount} className='login-button'>Create Account</button>
+          <button onClick={changePage} className='login-button'>Login with existing account</button>
+      </div>
+      
     </div>
-    {walkthrough()}
   </div>;
 
 

@@ -85,10 +85,9 @@ function SearchPage(props) {
 
     return (
         <div className='page'>
-            <h1>Search</h1>
             <div className='search-content'>
                 <div className='search-controls'>
-                    <input ref={searchRef} className='input-bar' type='text' placeholder='Search' onChange={editSearchTerm} />
+                    <input ref={searchRef} className='search-bar' type='text' placeholder='Search' onChange={editSearchTerm} />
                 </div>
                 <div className='search-results'>
                     {displaySearchResults()}

@@ -59,10 +59,9 @@ function CreatePage(props) {
 
     return (
         <div className='page'>
-            <h1>New Post</h1>
             <div className='create-post-content'>
                 <textarea className='new-post-input' ref={textRef} type='text' placeholder='Content' cols='40' rows='10'></textarea><br />
-                <button className='account-button' onClick={handlePostButtonClick}>Post</button>
+                <button className='account-button' onClick={handlePostButtonClick}>Create Post</button>
             </div>
         </div>
     );

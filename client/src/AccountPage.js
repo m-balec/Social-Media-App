@@ -329,9 +329,9 @@ function AccountPage(props) {
         <div className='account-controls'>
           <div className='drop-down-toggle' onClick={hidePasswordChange}><div className='triangle'></div>Change Password</div>
           <div ref={changePasswordRef} className='hidden-by-dafault'>
-            <input className='input-bar account-input' ref={oldPasswordRef} type='password' placeholder='Old Password'/>
-            <input className='input-bar account-input' ref={newPasswordRef} type='password' placeholder='New Password'/>
-            <input className='input-bar account-input' ref={confirmNewPasswordRef} type='password' placeholder='Confirm New Password'/>
+            <input className='input-bar' ref={oldPasswordRef} type='password' placeholder='Old Password'/>
+            <input className='input-bar' ref={newPasswordRef} type='password' placeholder='New Password'/>
+            <input className='input-bar' ref={confirmNewPasswordRef} type='password' placeholder='Confirm New Password'/>
             <button className='account-button' onClick={handleChangePasswordButtonClick}>Change Password</button>
           </div>
           <button className='account-button' onClick={handleLogout}>Logout</button>
@@ -355,9 +355,8 @@ function AccountPage(props) {
 
   return (
     <div className='page'>
-      <h1>Account</h1>
       <div className='account-content'>
-        <h2 className='account-username'>{searchUsername}</h2>
+        <h2 className='account-username'>Username: {searchUsername}</h2>
         {displayAccountControls()}
         <hr />
         <div>Followers: {friends.followers.length}</div>

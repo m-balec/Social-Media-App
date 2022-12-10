@@ -71,7 +71,6 @@ function HomePage(props) {
   return (
     // Home page to be displayed if user is logged in
     <div className='page'>
-      <h1>Home</h1>
       <h2>Welcome Back, {props.username}!</h2>
       <hr />
       <div className='post-list'>
