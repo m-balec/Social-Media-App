@@ -5,46 +5,51 @@ import Post from './Post';
 
 function HomePage(props) {
 
-    const publicAddress = process.env.REACT_APP_SERVER_ORIGIN_FE || 'https://www.thoughtcentral.ca:4001';
-    const [posts, setPosts] = useState([]);
-    const [page, setPage] = useState(1);
-    const [limit, setLimit] = useState(10);
-
-
-    // Async function to get all posts and the users who posted them
-  const handlePostFetch = async (callback) => {
-    let params = {
-      headers: { 'Content-Type': 'application/json' },
-      method: "POST",
-      body: JSON.stringify({
-        where: { username: props.username},
-        feed: true
-      }),
-      mode: 'cors'
-    }
-
-    let res = await fetch(`${publicAddress}/post/get?page=${page}&limit=${limit}`, params);
-
-    if (res.ok) {
-      let result = await res.json();
-
-      // calling callback so result can be accessed right away
-      if (callback) callback(result);
-    }
-  }
+  const publicAddress = process.env.REACT_APP_SERVER_ORIGIN_FE || 'https://www.thoughtcentral.ca:4001';
+  const [posts, setPosts] = useState([]);
+  const [page, setPage] = useState(1);
+  const [limit, setLimit] = useState(10);
+  
 
   useEffect(() => {
 
-    // Fetch to get posts
-    handlePostFetch((result) => {
-      let newPostsArray = posts;
-      for (let i = 0; i < result.length; i++) {
-        newPostsArray.push(result[i]);
+    const handlePostFetch = async (callback) => {
+      let params = {
+        headers: { 'Content-Type': 'application/json' },
+        method: "POST",
+        body: JSON.stringify({
+          where: { username: props.username},
+          feed: true
+        }),
+        mode: 'cors'
       }
+  
+      let res = await fetch(`${publicAddress}/post/get?page=${page}&limit=${limit}`, params);
+  
+      if (res.ok) {
+        let result = await res.json();
+
+        //let newPostsArray = posts;
+        let newPostsArray = [];
+        if (posts.length > 0) {
+          posts.forEach((post) => {
+            newPostsArray.push(post);
+          });
+        }
+
+
+        for (let i = 0; i < result.length; i++) {
+          newPostsArray.push(result[i]);
+        }
+
         setPosts(newPostsArray);
-    });
+      }
+    }
+
+    handlePostFetch();
 
   }, [page]);
+
 
   // Function to convert array of post-object into <Post/> components
   const convertPosts = (posts) => {
@@ -62,6 +67,7 @@ function HomePage(props) {
     return postList;
   }
 
+
   // Function to trigger loading of more posts
   const loadMorePosts = () => {
     setPage(page + 1);
@@ -69,7 +75,6 @@ function HomePage(props) {
 
 
   return (
-    // Home page to be displayed if user is logged in
     <div className='page'>
       <h2>Welcome Back, {props.username}!</h2>
       <hr />

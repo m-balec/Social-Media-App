@@ -73,7 +73,7 @@ function App() {
           <button onClick={handleCreateAccount} className='login-button'>Create Account</button>
           <button onClick={changePage} className='login-button'>Login with existing account</button>
       </div>
-      
+      {walkthrough()}
     </div>
   </div>;
 
